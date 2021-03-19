@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import LoginService from '../services/LoginService';
 import Message from '../elements/Message';
 import Error from '../elements/Error';
 import {
   COMMON_FIELDS,
-  REGISTRATION_FIELDS,
+  //REGISTRATION_FIELDS,
   LOGIN_FIELDS,
   LOGIN_MESSAGE,
   ERROR_IN_LOGIN,
@@ -40,7 +40,7 @@ export default class Login extends Component {
       user_name: this.state.user_name,
       password: this.state.password,
     };
-    const isLoggedIn = {};
+    //const isLoggedIn = {};
     const loginResult = await LoginService(data);
     if (loginResult !== 200) {
       this.setState({
