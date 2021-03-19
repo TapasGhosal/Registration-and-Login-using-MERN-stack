@@ -152,9 +152,9 @@ export default class Registration extends Component {
               >
                 {' '}{REGISTRATION_FIELDS.REGISTER}{' '}
               </button>
-              {' '}
+              {/* {' '}
               <Link to="/login"> {REGISTRATION_FIELDS.CANCEL} </Link>
-              {' '}
+              {' '}*/}
             </div>{' '}
           </div>{' '}
         </form>

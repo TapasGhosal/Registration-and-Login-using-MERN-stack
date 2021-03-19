@@ -1,5 +1,6 @@
 const express = require('express');
-const registrationRoutes = express.Router();
+const registrationRoutes = express();
+//console.log(registrationRoutes);
 const bcrypt = require('bcryptjs');
 let Registration = require('./schema/User');
 let RouteNames = require("./constants/constants");
@@ -27,13 +28,15 @@ registrationRoutes.route(RouteNames.login).post(function(req, res) {
             }
         });
 });
+console.log('test' + RouteNames.validate);
 
 // Username validation Router
-registrationRoutes.route(RouteNames.validate)
-    .post(function(req, res) {
+
+/* registrationRoutes.route(RouteNames.validate)
+    .post(function(req, res) {      
         Registration.findOne({ user_name: req.body.user_name })
             .then(user => user ? res.sendStatus(204) : res.sendStatus(200))
-    });
+    }); */
 
 // Get allData
 registrationRoutes.route(RouteNames.data).get(function(req, res) {

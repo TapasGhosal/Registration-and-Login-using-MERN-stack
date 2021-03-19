@@ -40,17 +40,24 @@ export default class Login extends Component {
       user_name: this.state.user_name,
       password: this.state.password,
     };
+    const isLoggedIn = {};
     const loginResult = await LoginService(data);
     if (loginResult !== 200) {
       this.setState({
         error: true,
         loginSuccess: false,
       });
-    } else
+    } else {
+      sessionStorage.setItem("isLoggedIn", true);
+      console.log(sessionStorage.getItem('isLoggedIn'));
       this.setState({
         loginSuccess: true,
         error: false,
       });
+      this.props.history.push("/dashboard");
+      window.location.reload();
+    }
+      
   };
 
   render() {
@@ -95,8 +102,8 @@ export default class Login extends Component {
                 {' '}
                   {LOGIN_FIELDS.LOGIN}    {' '}
               </button>{' '}
-                  <Link to="/register">
-                     {REGISTRATION_FIELDS.REGISTER} </Link>  {' '}
+                {/*  <Link to="/register">
+                     {REGISTRATION_FIELDS.REGISTER} </Link> */}  {' '}
                {' '}
             </div>{' '}
                {' '}
